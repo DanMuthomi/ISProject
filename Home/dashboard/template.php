@@ -6,7 +6,7 @@
     <style>
         /* Add your CSS styles for the navigation bar here */
         .navbar {
-            background-color: #333;
+            background-color: rgb(50,229,200);
             color: white;
             display: flex;
             justify-content: space-between;
@@ -51,14 +51,14 @@
         }
 
         .dropdown-content a:hover {
-            background-color: #f1f1f1;
+            background-color: #c0eee7;
         }
 
         /* Sidebar styling */
         .sidebar {
             height: 100%;
             width: 250px;
-            background-color: #f1f1f1;
+            background-color: #c0eee7;
             padding-top: 20px;
             position: fixed;
             top: 60px; /* Adjust the top position to leave space for the navigation bar */
@@ -73,7 +73,7 @@
         }
 
         .sidebar a:hover {
-            background-color: #ddd;
+            background-color: rgb(50,229,200);
         }
 
         /* Adjust content area to prevent overlapping with sidebar */
@@ -86,7 +86,11 @@
 <body>
     <div class="navbar">
         <!-- Company Logo -->
-        <div class="logo">Your Company Logo</div>
+        <div class="logo">
+            <a class="navbar-brand" href="#">
+      <img src="images\logo.jpg" alt="Logo" width="30" height="24">
+    </a>
+        </div>
 
         <!-- User Profile and Dropdown Menu -->
         <div class="user-menu">
@@ -111,7 +115,20 @@
     <!-- Content Area -->
     <div class="content">
         <!-- Add the rest of your website content here -->
+        <!-- Welcome Message -->
+        <h2>Welcome, <span id="user-name">John Doe</span>!</h2>
+        <p>Here's your personalized dashboard where you can monitor your renewable energy usage and savings.</p>
     </div>
+
+    <!-- JavaScript to get user's name and display in the welcome message -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Replace "John Doe" with the user's actual name or retrieve it dynamically from the server
+            var userName = "John Doe";
+            document.getElementById("user-name").textContent = userName;
+        });
+    </script>
+
 
 </body>
 </html>

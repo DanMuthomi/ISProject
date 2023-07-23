@@ -3,90 +3,16 @@
 <head>
     <title>Static Navigation Bar with Sidebar</title>
     <!-- Add your CSS styles here or link an external CSS file -->
-    <style>
-        /* Add your CSS styles for the navigation bar here */
-        .navbar {
-            background-color: #333;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .user-menu {
-            position: relative;
-            display: inline-block;
-        }
-
-        .user-img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 120px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .user-menu:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        /* Sidebar styling */
-        .sidebar {
-            height: 100%;
-            width: 250px;
-            background-color: #f1f1f1;
-            padding-top: 20px;
-            position: fixed;
-            top: 60px; /* Adjust the top position to leave space for the navigation bar */
-            left: 0;
-        }
-
-        .sidebar a {
-            padding: 10px;
-            display: block;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .sidebar a:hover {
-            background-color: #ddd;
-        }
-
-        /* Adjust content area to prevent overlapping with sidebar */
-        .content {
-            margin-left: 260px; /* Adjust the left margin to accommodate the sidebar width */
-            padding: 20px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="home.css">
 </head>
 <body>
     <div class="navbar">
         <!-- Company Logo -->
-        <div class="logo">Your Company Logo</div>
+        <div class="logo">
+            <a class="navbar-brand" href="home.php">
+      <img src="images\logo.jpg" alt="Logo" width="30" height="24">
+    </a>
+        </div>
 
         <!-- User Profile and Dropdown Menu -->
         <div class="user-menu">
@@ -101,17 +27,30 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="#">Dashboard</a>
+        <a href="home.php">Dashboard</a>
         <a href="#">Analytics</a>
         <a href="#">Payment Methods</a>
-        <a href="#">Create Accounts</a>
-        <a href="#">View Accounts</a>
+        <a href="createAccount.php">Create Accounts</a>
+        <a href="viewAccounts.php">View Accounts</a>
     </div>
 
     <!-- Content Area -->
     <div class="content">
         <!-- Add the rest of your website content here -->
+        <!-- Welcome Message -->
+        <h2>Welcome, <span id="user-name">John Doe</span>!</h2>
+        <p>Here's your personalized dashboard where you can monitor your renewable energy usage and savings.</p>
     </div>
+
+    <!-- JavaScript to get user's name and display in the welcome message -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Replace "John Doe" with the user's actual name or retrieve it dynamically from the server
+            var userName = "John Doe";
+            document.getElementById("user-name").textContent = userName;
+        });
+    </script>
+
 
 </body>
 </html>

@@ -1,3 +1,24 @@
+<?php
+    include "connect.php";
+    if ($_SERVER['REQUEST_METHOD']=="POST"){
+        $username = $_POST['username'];
+        $fullname = $_POST['fullname'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $role = $_POST['role'];
+
+        $sql = "INSERT INTO users(uName,fullName,email,password,role) VALUES('$username','$fullname','$email','$password','$role')";
+        $result = mysqli_query($connect, $sql);
+        if ($result){
+            header("location:viewAccounts.php");
+        }
+        else{
+            echo "Not registered";
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,36 +58,38 @@
     <!-- Content Area -->
     <div class="content">
         <!-- Create Accounts Form -->
+        <?php
+            $roles = array("ADMIN","TECHNICIAN","USER");
+        ?>
         <div class="form-container">
             <h2>Create Account</h2>
-            <form action="#" method="post">
+            <form action="createAccount.php" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" name="username" required>
                 </div>
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
-                    <input type="text" id="fullname" name="fullname" required>
+                    <input type="text" name="fullname" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" name="password" required>
                 </div>
                 <div class="form-group">
                     <label for="role">Role</label>
-                    <select id="role" name="role" required>
-                        <option value="ADMIN">ADMIN</option>
-                        <option value="TECHNICIAN">TECHNICIAN</option>
-                        <option value="USER">USER</option>
+                    <select name="role" required>
+                        <option>--Specify Role--</option>
+                        <?php
+                            foreach ($roles as $role) {
+                                echo "<option>$role</option>";
+                            }
+                        ?>
                     </select>
-                </div>
-                <div class="form-group">
-                    <label for="meterid">Meter ID</label>
-                    <input type="text" id="meterid" name="meterid" required>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Create Account">

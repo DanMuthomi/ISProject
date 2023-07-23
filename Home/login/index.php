@@ -10,7 +10,9 @@
 	<h1>LOGIN</h1>
 	<form action="login.php" method="post">
 		<div class="login">
-		
+		<?php if (isset($_GET['error'])) {
+			<p class='error'> <?php echo $_GET['error']; ?> </p>
+		} ?>
 		<label>Username</label>
 		<input type="text" name="uname" placeholder="User name">
 		<br>
