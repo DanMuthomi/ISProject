@@ -1,10 +1,16 @@
+
 /* Add your CSS styles for the navigation bar here */
         .navbar {
-            background-color: rgb(50,229,200);
+            background-color: rgb(50, 229, 200);
             color: white;
             display: flex;
             justify-content: space-between;
             padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
         }
 
         .logo {
@@ -55,7 +61,7 @@
             background-color: #c0eee7;
             padding-top: 20px;
             position: fixed;
-            top: 60px; /* Adjust the top position to leave space for the navigation bar */
+            top: 45px; /* Adjust the top position to leave space for the navigation bar */
             left: 0;
         }
 

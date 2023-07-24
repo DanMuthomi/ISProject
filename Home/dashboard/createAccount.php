@@ -1,3 +1,4 @@
+
 <?php
     include "connect.php";
     if ($_SERVER['REQUEST_METHOD']=="POST"){
@@ -7,7 +8,10 @@
         $password = $_POST['password'];
         $role = $_POST['role'];
 
-        $sql = "INSERT INTO users(uName,fullName,email,password,role) VALUES('$username','$fullname','$email','$password','$role')";
+        // Hash the password using bcrypt (password_hash function)
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+        $sql = "INSERT INTO users(uName,fullName,email,password,role) VALUES('$username','$fullname','$email','$hashedPassword','$role')";
         $result = mysqli_query($connect, $sql);
         if ($result){
             header("location:viewAccounts.php");
@@ -22,7 +26,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create Accounts - Energy Monitoring System</title>
+    <title>Energy Monitoring System - Create Accounts</title>
     <!-- Add your CSS styles here or link an external CSS file -->
     <link rel="stylesheet" type="text/css" href="create.css">
 </head>
@@ -41,7 +45,7 @@
             <div class="dropdown-content">
                 <a href="#">My Profile</a>
                 <a href="#">Settings</a>
-                <a href="#">Logout</a>
+                <a href="login.php">Logout</a>
             </div>
         </div>
     </div>
@@ -49,8 +53,8 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <a href="home.php">Dashboard</a>
-        <a href="#">Analytics</a>
-        <a href="#">Payment Methods</a>
+        <a href="analytics.php">Analytics</a>
+        <a href="paymentMethod.php">Payment Methods</a>
         <a href="createAccount.php">Create Accounts</a>
         <a href="viewAccounts.php">View Accounts</a>
     </div>

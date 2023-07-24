@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Static Navigation Bar with Sidebar</title>
+    <title>Energy Monitoring System - Home</title>
     <!-- Add your CSS styles here or link an external CSS file -->
     <link rel="stylesheet" type="text/css" href="home.css">
 </head>
@@ -20,7 +21,7 @@
             <div class="dropdown-content">
                 <a href="#">My Profile</a>
                 <a href="#">Settings</a>
-                <a href="#">Logout</a>
+                <a href="login.php">Logout</a>
             </div>
         </div>
     </div>
@@ -29,7 +30,7 @@
     <div class="sidebar">
         <a href="home.php">Dashboard</a>
         <a href="#">Analytics</a>
-        <a href="#">Payment Methods</a>
+        <a href="paymentMethod.php">Payment Methods</a>
         <a href="createAccount.php">Create Accounts</a>
         <a href="viewAccounts.php">View Accounts</a>
     </div>

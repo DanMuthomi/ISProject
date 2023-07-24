@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,20 +116,8 @@
     <!-- Content Area -->
     <div class="content">
         <!-- Add the rest of your website content here -->
-        <!-- Welcome Message -->
-        <h2>Welcome, <span id="user-name">John Doe</span>!</h2>
-        <p>Here's your personalized dashboard where you can monitor your renewable energy usage and savings.</p>
+        
     </div>
-
-    <!-- JavaScript to get user's name and display in the welcome message -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Replace "John Doe" with the user's actual name or retrieve it dynamically from the server
-            var userName = "John Doe";
-            document.getElementById("user-name").textContent = userName;
-        });
-    </script>
-
 
 </body>
 </html>

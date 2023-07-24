@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Static Navigation Bar with Sidebar</title>
+    <title>Energy Monitoring System - Analytics</title>
     <!-- Add your CSS styles here or link an external CSS file -->
     <link rel="stylesheet" type="text/css" href="analytics.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -21,7 +22,7 @@
             <div class="dropdown-content">
                 <a href="#">My Profile</a>
                 <a href="#">Settings</a>
-                <a href="#">Logout</a>
+                <a href="login.php">Logout</a>
             </div>
         </div>
     </div>
