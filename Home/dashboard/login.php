@@ -83,7 +83,3 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 </body>
 </html>
 
-<?php
-// Close the database connection
-$conn->close();
-?>
