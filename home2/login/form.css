@@ -1,0 +1,29 @@
+*{
+	box-sizing: border-box;
+}
+h1{
+	text-align: center;
+}
+.login{
+	background-color: rgb(94,219,229);
+	padding: 15px;
+	border-radius: 8px;
+}
+select, [type="text"], [type="password"]{
+	width: 100%;
+	padding: 10px 14px;
+	border-radius: 8px;
+	border: 1px solid rgb(38,69,165);
+	margin-bottom: 10px;
+}
+[type="submit"]{
+	width: 100%;
+	padding: 10px 14px;
+	border-radius: 8px;
+	border: none;
+	background-color: rgb(114,200,61);
+	margin-top: 10px;
+}
+[type="submit"]:hover{
+	opacity: 0.8;
+}

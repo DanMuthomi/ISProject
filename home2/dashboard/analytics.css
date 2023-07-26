@@ -1,0 +1,99 @@
+
+/* Add your CSS styles for the navigation bar here */
+        .navbar {
+            background-color: rgb(50, 229, 200);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .user-menu {
+            position: relative;
+            display: inline-block;
+        }
+
+        .user-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .user-menu:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #c0eee7;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            background-color: #c0eee7;
+            padding-top: 20px;
+            position: fixed;
+            top: 45px; /* Adjust the top position to leave space for the navigation bar */
+            left: 0;
+        }
+
+        .sidebar a {
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .sidebar a:hover {
+            background-color: rgb(50,229,200);
+        }
+
+        /* Adjust content area to prevent overlapping with sidebar */
+        .content {
+            margin-left: 260px; /* Adjust the left margin to accommodate the sidebar width */
+            padding: 20px;
+        }
+        /* Analytics styles */
+        .analytics-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .graph-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .map-container {
+            max-width: 800px;
+            height: 400px;
+            margin: 20px auto;
+        }
