@@ -1,35 +1,55 @@
-
 <?php
 // Replace database credentials with your actual database connection details
 include 'connect.php';
+
+// Start the session
+session_start();
 
 // Check if the form is submitted
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Prepare and execute the SQL query to fetch user data based on the username
-    $sql = "SELECT * FROM users WHERE uName = '$username'";
-    $result = mysqli_query($connect, $sql);
+    if (!empty($password)) {
+        // Prepare and execute the SQL query with a prepared statement
+        $sql = "SELECT * FROM users WHERE uName = ?";
+        $stmt = $connect->prepare($sql);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-    if ($result->num_rows == 1) {
-        $user = $result->fetch_assoc();
-        // Verify the password using PHP's password_verify() function
-        if (password_verify($password, $user['password'])) {
-            // Password matches, grant access to the user
-            // You can set session variables or redirect to a secure dashboard page
-            session_start();
-            $_SESSION['username'] = $user['username'];
-            // Redirect to the dashboard or any other secure page
-            header("Location: home.php");
-            exit();
+        if ($result->num_rows == 1) {
+            $user = $result->fetch_assoc();
+            // Verify the password using PHP's password_verify() function
+            if (password_verify($password, $user['password'])) {
+                // Password matches, grant access to the user
+                $_SESSION['username'] = $user['uName'];
+                $_SESSION['user_role'] = $user['role'];
+                // Redirect to the dashboard or any other secure page
+                if ($_SESSION['user_role'] === 'ADMIN') {
+                    header("Location: a_dashboard.php"); // Redirect to the Admin Dashboard page
+                    exit();
+                } 
+                elseif ($_SESSION['user_role'] === 'TECHNICIAN') {
+                    header("Location: analytics.php"); // Redirect to the Technician Dashboard page
+                    exit();
+                } 
+                elseif ($_SESSION['user_role'] === 'USER') {
+                    header("Location: paymentMethod.php"); // Redirect to the User Dashboard page
+                    exit();
+                } 
+            } 
+            else {
+                // Password is incorrect, display an error message
+                $error = "Invalid username or password";
+            }
         } else {
-            // Password is incorrect, display an error message
+            // User not found, display an error message
             $error = "Invalid username or password";
         }
     } else {
-        // User not found, display an error message
-        $error = "Invalid username or password";
+        // Password field is empty, display an error message
+        $error = "Please enter your password";
     }
 }
 ?>
@@ -82,4 +102,3 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 </body>
 </html>
-

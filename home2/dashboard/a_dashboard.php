@@ -1,16 +1,29 @@
+<?php
+session_start();
+
+// Check if the user is logged in (by checking if $_SESSION['username'] is set)
+if (!isset($_SESSION['username'])) {
+    // If the user is not logged in, redirect to the login page
+    header("Location: login.php");
+    exit();
+}
+
+// Retrieve the username from the session
+$username = $_SESSION['username'];
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Energy Monitoring System - Home</title>
     <!-- Add your CSS styles here or link an external CSS file -->
-    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
 </head>
 <body>
     <div class="navbar">
         <!-- Company Logo -->
         <div class="logo">
-            <a class="navbar-brand" href="home.php">
+            <a class="navbar-brand" href="a_dashboard.php">
       <img src="images\logo.jpg" alt="Logo" width="30" height="24">
     </a>
         </div>
@@ -29,7 +42,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <a href="home.php">Dashboard</a>
-        <a href="#">Analytics</a>
+        <a href="analytics.php">Analytics</a>
         <a href="paymentMethod.php">Payment Methods</a>
         <a href="createAccount.php">Create Accounts</a>
         <a href="viewAccounts.php">View Accounts</a>
@@ -37,20 +50,11 @@
 
     <!-- Content Area -->
     <div class="content">
-        <!-- Add the rest of your website content here -->
         <!-- Welcome Message -->
-        <h2>Welcome, <span id="user-name">John Doe</span>!</h2>
+        <h2>Welcome, <?php echo htmlspecialchars($username); ?>!</h2>
         <p>Here's your personalized dashboard where you can monitor your renewable energy usage and savings.</p>
+        <!-- Rest of the dashboard content goes here -->
     </div>
-
-    <!-- JavaScript to get user's name and display in the welcome message -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Replace "John Doe" with the user's actual name or retrieve it dynamically from the server
-            var userName = "John Doe";
-            document.getElementById("user-name").textContent = userName;
-        });
-    </script>
 
 
 </body>
