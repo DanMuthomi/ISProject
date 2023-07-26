@@ -23,7 +23,7 @@ $username = $_SESSION['username'];
     <div class="navbar">
         <!-- Company Logo -->
         <div class="logo">
-            <a class="navbar-brand" href="a_dashboard.php">
+            <a class="navbar-brand" href="u_dashboard.php">
       <img src="images\logo.jpg" alt="Logo" width="30" height="24">
     </a>
         </div>
@@ -41,11 +41,9 @@ $username = $_SESSION['username'];
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="a_dashboard.php">Dashboard</a>
-        <a href="a_analytics.php">Analytics</a>
-        <a href="a_paymentMethod.php">Payment Methods</a>
-        <a href="a_createAccount.php">Create Accounts</a>
-        <a href="a_viewAccounts.php">View Accounts</a>
+        <a href="u_dashboard.php">Dashboard</a>
+        <a href="u_analytics.php">Analytics</a>
+        <a href="u_paymentMethod.php">Payment Methods</a>
     </div>
 
     <!-- Content Area -->

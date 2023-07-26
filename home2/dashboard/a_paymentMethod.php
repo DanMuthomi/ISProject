@@ -1,23 +1,10 @@
-<?php
-session_start();
-
-// Check if the user is logged in (by checking if $_SESSION['username'] is set)
-if (!isset($_SESSION['username'])) {
-    // If the user is not logged in, redirect to the login page
-    header("Location: login.php");
-    exit();
-}
-
-// Retrieve the username from the session
-$username = $_SESSION['username'];
-?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Energy Monitoring System - Home</title>
+    <title>Energy Monitoring System - Payment Method</title>
     <!-- Add your CSS styles here or link an external CSS file -->
-    <link rel="stylesheet" type="text/css" href="dashboard.css">
+    <link rel="stylesheet" type="text/css" href="pay.css">
 </head>
 <body>
     <div class="navbar">
@@ -50,12 +37,13 @@ $username = $_SESSION['username'];
 
     <!-- Content Area -->
     <div class="content">
-        <!-- Welcome Message -->
-        <h2>Welcome, <?php echo htmlspecialchars($username); ?>!</h2>
-        <p>Here's your personalized dashboard where you can monitor your renewable energy usage and savings.</p>
-        <!-- Rest of the dashboard content goes here -->
+        <!-- Add the rest of your website content here -->
+        <div class="coming-soon">
+            <h2>Payment Feature Coming Soon!</h2>
+            <p>We are currently working on adding a secure payment feature to enhance your energy monitoring experience. Stay tuned for updates!</p>
+        </div>
     </div>
-
+    </div>
 
 </body>
 </html>

@@ -31,11 +31,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                     exit();
                 } 
                 elseif ($_SESSION['user_role'] === 'TECHNICIAN') {
-                    header("Location: analytics.php"); // Redirect to the Technician Dashboard page
+                    header("Location: t_dashboard.php"); // Redirect to the Technician Dashboard page
                     exit();
                 } 
                 elseif ($_SESSION['user_role'] === 'USER') {
-                    header("Location: paymentMethod.php"); // Redirect to the User Dashboard page
+                    header("Location: u_dashboard.php"); // Redirect to the User Dashboard page
                     exit();
                 } 
             } 
