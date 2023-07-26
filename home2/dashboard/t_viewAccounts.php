@@ -32,6 +32,7 @@
         <a href="t_analytics.php">Analytics</a>
         <a href="t_paymentMethod.php">Payment Methods</a>
         <a href="t_createAccount.php">Create Accounts</a>
+        <a href="createMeter.php">Create Meter</a>
         <a href="t_viewAccounts.php">View Accounts</a>
     </div>
 

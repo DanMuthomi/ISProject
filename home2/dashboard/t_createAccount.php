@@ -14,7 +14,7 @@
         $sql = "INSERT INTO users(uName,fullName,email,password,role) VALUES('$username','$fullname','$email','$hashedPassword','$role')";
         $result = mysqli_query($connect, $sql);
         if ($result){
-            header("location:viewAccounts.php");
+            header("location:createMeter.php");
         }
         else{
             echo "Not registered";
