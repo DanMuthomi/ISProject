@@ -1,9 +1,9 @@
-<?php
-    include "connect.php";
 
-    
-    if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['action']) && $_POST['action'] === 'insert') {
-    $username = $_POST['username'];
+<?php
+include "connect.php";
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['action']) && $_POST['action'] === 'insert') {
+    $username = $_POST['username']; // Properly set the $username variable
     $meterid = $_POST['meterid'];
 
     // Fetch the user ID based on the selected username
@@ -13,26 +13,26 @@
     if ($result && mysqli_num_rows($result) === 1) {
         // Existing code...
         $row = mysqli_fetch_assoc($result);
-            $uid = $row['uid']; // Get the user ID (uid) from the fetched row
+        $uid = $row['uid']; // Get the user ID (uid) from the fetched row
 
-            // Insert the data into the smartmeter table with the fetched uid as a foreign key
-            $sql = "INSERT INTO smeter(uid,mid) VALUES('$uid','$meterid')";
-            $insert_result = mysqli_query($connect, $sql);
-            if ($insert_result) {
-                // Redirect to the view accounts page after successful insertion
-                header("Location: t_viewAccounts.php");
-                exit();
-            } 
-            else {
-                echo "Failed to create meter entry.";
-            }
+        // Insert the data into the smartmeter table with the fetched uid as a foreign key
+        $sql = "INSERT INTO smeter(uid,mid) VALUES('$uid','$meterid')";
+        $insert_result = mysqli_query($connect, $sql);
+        if ($insert_result) {
+            // Redirect to the view accounts page after successful insertion
+            header("Location: t_viewAccounts.php");
+            exit();
+        } else {
+            echo "Failed to create meter entry.";
+        }
     } else {
         // Existing code...
         header("Location: createMeter.php?username=" . urlencode($username));
-            exit();
+        exit();
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -76,7 +76,7 @@
         <!-- Create Meter Form -->
         <div class="form-container">
             <h2>Create Meter</h2>
-            <form action="t_createMeter.php" method="post">
+            <form action="createMeter.php" method="post">
     <!-- Existing form fields ... -->
     <div class="form-group">
                     <label for="username">Username</label>
@@ -94,12 +94,6 @@
                 <div class="form-group">
                     <input type="submit" value="Create Meter">
                 </div>
-    <div class="form-group">
-        <!-- Hidden input fields to pass username and action parameters -->
-        <input type="hidden" name="username" value="<?php echo htmlspecialchars($username); ?>">
-        <input type="hidden" name="action" value="insert">
-        <!--<input type="submit" value="Create Meter">-->
-    </div>
 </form>
 
             
