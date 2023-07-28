@@ -1,0 +1,9 @@
+Research links:
+
+- https://www.bing.com/search?q=database+connect+pico+w&qs=n&form=QBRE&sp=-1&lq=0&pq=database+connect+pico+w&sc=10-23&sk=&cvid=44707C7B8FB44AA6B7F826CC2A9413AA&ghsh=0&ghacc=0&ghpl=
+- https://forum.core-electronics.com.au/t/pico-w-writing-into-mysql-db/15087/3
+- https://www.tomshardware.com/how-to/send-and-receive-data-raspberry-pi-pico-w-mqtt
+- https://github.com/pi3g/pico-w
+- https://www.tomshardware.com/how-to/raspberry-pi-pico-w-web-server
+- https://thepihut.com/blogs/raspberry-pi-tutorials/wireless-communication-between-two-raspberry-pi-pico-w-boards
+- https://www.tomshardware.com/how-to/connect-raspberry-pi-pico-w-to-the-internet
