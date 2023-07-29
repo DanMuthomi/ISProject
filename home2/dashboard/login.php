@@ -23,6 +23,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             // Verify the password using PHP's password_verify() function
             if (password_verify($password, $user['password'])) {
                 // Password matches, grant access to the user
+                $_SESSION['uid'] = $user['uid']; // Add 'uid' to the session
                 $_SESSION['username'] = $user['uName'];
                 $_SESSION['user_role'] = $user['role'];
                 // Redirect to the dashboard or any other secure page
@@ -53,6 +54,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
