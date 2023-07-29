@@ -3,7 +3,7 @@
     if (isset($_GET['updateid'])){
         $id = $_GET['updateid'];
         $mysql = "SELECT * FROM users WHERE uid=$id";
-        $result = mysqli_query($connect,$mysql);
+        $result = mysqli_query($connect, $mysql);
         if ($result) {
             $row = mysqli_fetch_assoc($result);
             $username = $row['uName'];
@@ -12,10 +12,10 @@
             $role = $row['role'];
         }
         if ($_SERVER['REQUEST_METHOD']=="POST"){
-            $username = mysqli_real_escape_string($connect,$_POST['uName']);
-            $fullname = mysqli_real_escape_string($connect,$_POST['fullName']);
-            $email = mysqli_real_escape_string($connect,$_POST['email']);
-            $sql = "UPDATE users SET username='uName', fullname='fullName', email='email' where uid=$id";
+            $username = mysqli_real_escape_string($connect, $_POST['username']);
+            $fullname = mysqli_real_escape_string($connect, $_POST['fullname']);
+            $email = mysqli_real_escape_string($connect, $_POST['email']);
+            $sql = "UPDATE users SET uName='$username', fullName='$fullname', email='$email' WHERE uid=$id";
             $result = mysqli_query($connect, $sql);
             if ($result){
                 header("location:a_viewAccounts.php");
@@ -63,15 +63,16 @@
         <a href="a_viewAccounts.php">View Accounts</a>
     </div>
 
-    <!-- Content Area -->
+     <!-- Content Area -->
     <div class="content">
-        <!-- Create Accounts Form -->
+        <!-- Update Accounts Form -->
         <?php
             $roles = array("ADMIN","TECHNICIAN");
         ?>
         <div class="form-container">
             <h2>Update Account</h2>
-            <form action="createAccount.php" method="post">
+            <form action="update.php?updateid=<?php echo $id; ?>" method="post">
+                <!-- Existing form fields ... -->
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" name="username" value="<?php echo $username;?>" required>
@@ -90,6 +91,7 @@
             </form>
         </div>
     </div>
+
 
 </body>
 </html>
