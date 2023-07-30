@@ -19,9 +19,8 @@
         <div class="user-menu">
             <img class="user-img" src="path/to/user-image.jpg" alt="User Image">
             <div class="dropdown-content">
-                <a href="#">My Profile</a>
-                <a href="#">Settings</a>
-                <a href="login.php">Logout</a>
+                <a href="t_my_profile.php">My Profile</a>
+                <a href="logout.php">Logout</a>
             </div>
         </div>
     </div>
@@ -32,7 +31,6 @@
         <a href="t_analytics.php">Analytics</a>
         <a href="t_paymentMethod.php">Payment Methods</a>
         <a href="t_createAccount.php">Create Accounts</a>
-        <a href="createMeter.php">Create Meter</a>
         <a href="t_viewAccounts.php">View Accounts</a>
     </div>
 

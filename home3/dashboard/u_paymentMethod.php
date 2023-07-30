@@ -19,8 +19,7 @@
         <div class="user-menu">
             <img class="user-img" src="path/to/user-image.jpg" alt="User Image">
             <div class="dropdown-content">
-                <a href="#">My Profile</a>
-                <a href="#">Settings</a>
+                <a href="u_my_profile.php">My Profile</a>
                 <a href="login.php">Logout</a>
             </div>
         </div>
@@ -29,9 +28,10 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <a href="u_dashboard.php">Dashboard</a>
-        <a href="u_analytics.php">Analytics</a>
+        <a href="u_analytics2.php?username=<?php echo urlencode($username); ?>">Analytics</a>
         <a href="u_paymentMethod.php">Payment Methods</a>
     </div>
+
 
     <!-- Content Area -->
     <div class="content">

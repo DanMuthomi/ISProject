@@ -14,7 +14,7 @@
         $sql = "INSERT INTO users(uName,fullName,email,password,role) VALUES('$username','$fullname','$email','$hashedPassword','$role')";
         $result = mysqli_query($connect, $sql);
         if ($result){
-            header("location:createMeter.php");
+            header("location:t_viewAccounts.php");
         }
         else{
             echo "Not registered";
@@ -43,9 +43,8 @@
         <div class="user-menu">
             <img class="user-img" src="path/to/user-image.jpg" alt="User Image">
             <div class="dropdown-content">
-                <a href="#">My Profile</a>
-                <a href="#">Settings</a>
-                <a href="login.php">Logout</a>
+                <a href="t_my_profile.php">My Profile</a>
+                <a href="logout.php">Logout</a>
             </div>
         </div>
     </div>
