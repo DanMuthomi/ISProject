@@ -35,7 +35,7 @@ $uid = $_SESSION['uid'];
             <div class="dropdown-content">
                 <a href="#">My Profile</a>
                 <a href="#">Settings</a>
-                <a href="login.php">Logout</a>
+                <a href="logout.php">Logout</a>
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@ $uid = $_SESSION['uid'];
     <div class="sidebar">
         <a href="u_dashboard.php">Dashboard</a>
         <a href="u_analytics.php">Analytics</a>
-        <a href="u_analytics.php?username=<?php echo urlencode($username); ?>">Analytics</a>
+        <a href="u_analytics2.php?username=<?php echo urlencode($username); ?>">Analytics</a>
         <a href="u_paymentMethod.php">Payment Methods</a>
     </div>
 
