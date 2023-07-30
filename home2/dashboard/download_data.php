@@ -14,14 +14,16 @@ $result = $stmt->get_result();
 // Create a CSV file and write the data to it
 $filename = "energy_usage_data.csv";
 $file = fopen($filename, "w");
-fputcsv($file, array('Time', 'Longitude', 'Latitude', 'Energy (Watts)'));
+fputcsv($file, array('Date', 'Time', 'Longitude', 'Latitude', 'Energy (Watts)'));
 
 while ($row = mysqli_fetch_assoc($result)) {
-    $time = $row['time'];
+    $datetime = $row['time'];
+    $date = date('d-m-Y', strtotime($datetime)); // Rearrange date to "d-m-Y" format
+    $time = date('H:i:s', strtotime($datetime)); // Extract time from datetime
     $longitude = $row['longitude'];
     $latitude = $row['latitude'];
     $energy = $row['energy'];
-    fputcsv($file, array($time, $longitude, $latitude, $energy));
+    fputcsv($file, array($date, $time, $longitude, $latitude, $energy));
 }
 
 fclose($file);
