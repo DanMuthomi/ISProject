@@ -98,7 +98,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 }
                 ?>
 
-                <a href="#" class="forgot-password">Forgot Password?</a>
+                <a href="update_password.php" class="forgot-password">Forgot Password?</a>
             </form>
         </div>
     </div>
