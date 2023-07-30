@@ -31,9 +31,9 @@ $uid = $_SESSION['uid'];
 
         <!-- User Profile and Dropdown Menu -->
         <div class="user-menu">
-            <img class="user-img" src="path/to/user-image.jpg" alt="User Image">
+            <img class="user-img" src="images\no_usr.png" alt="User Image">
             <div class="dropdown-content">
-                <a href="#">My Profile</a>
+                <a href="my_profile.php">My Profile</a>
                 <a href="#">Settings</a>
                 <a href="logout.php">Logout</a>
             </div>
