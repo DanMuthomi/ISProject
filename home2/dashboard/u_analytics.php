@@ -24,6 +24,12 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        <!-- Add a link or button for downloading CSV -->
+<div class="download-csv">
+    <a href="download_data.php" class="btn btn-primary">Download CSV</a>
+</div>
+
 <?php
 // analytics.php
 
