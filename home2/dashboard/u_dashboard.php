@@ -10,6 +10,7 @@ if (!isset($_SESSION['username'])) {
 
 // Retrieve the username from the session
 $username = $_SESSION['username'];
+$uid = $_SESSION['uid'];
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +44,7 @@ $username = $_SESSION['username'];
     <div class="sidebar">
         <a href="u_dashboard.php">Dashboard</a>
         <a href="u_analytics.php">Analytics</a>
+        <a href="u_analytics.php?username=<?php echo urlencode($username); ?>">Analytics</a>
         <a href="u_paymentMethod.php">Payment Methods</a>
     </div>
 

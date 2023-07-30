@@ -24,37 +24,69 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+<?php
 // analytics.php
 
-// Start the session
-session_start();
+// Include database connection and other necessary files
+include "connect.php";
 
-// Check if the user is logged in
-if (!isset($_SESSION['uid'])) {
-    // Redirect to the login page if the user is not logged in
-    header("Location: login.php");
-    exit();
+// Start the session and retrieve the username from the URL parameter
+session_start();
+if (isset($_GET['username'])) {
+    $username = $_GET['username'];
+
+    // Fetch the uid of the specific user based on the provided username
+    $sql = "SELECT uid FROM users WHERE uName = ?";
+    $stmt = $connect->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+        $user = $result->fetch_assoc();
+        $uid = $user['uid'];
+
+        // Now you have the uid, use it to fetch data from the meters database for that user
+        $sql = "SELECT * FROM meters WHERE uid = ?";
+        $stmt = $connect->prepare($sql);
+        $stmt->bind_param("i", $uid);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Now you can use $result to display the data in a table or plot it in graphs
+        // Now you can use $result to display the data in a table
+echo "<h3>Energy Usage Data for User: $username</h3>";
+echo "<table border='1'>
+        <tr>
+            <th>Time</th>
+            <th>Longitude</th>
+            <th>Latitude</th>
+            <th>Energy (Watts)</th>
+        </tr>";
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $time = $row['time'];
+    $longitude = $row['longitude'];
+    $latitude = $row['latitude'];
+    $energy = $row['energy'];
+
+    echo "<tr>
+            <td>$time</td>
+            <td>$longitude</td>
+            <td>$latitude</td>
+            <td>$energy</td>
+          </tr>";
 }
 
-// Replace database credentials with your actual database connection details
-include 'connect.php';
+echo "</table>";
 
-// Fetch data from the meters table for the logged-in user using 'uid'
-$uid = $_SESSION['uid'];
-$sql = "SELECT * FROM meters WHERE uid = ?";
-$stmt = $connect->prepare($sql);
-$stmt->bind_param("i", $uid);
-$stmt->execute();
-$result = $stmt->get_result();
-
-// Fetch and store the data in an array
-$metersData = array();
-while ($row = $result->fetch_assoc()) {
-    $metersData[] = $row;
+    } else {
+        echo "User not found.";
+    }
+} else {
+    echo "Username parameter not provided.";
 }
 ?>
-
                     </tbody>
                 </table>
             </div>
