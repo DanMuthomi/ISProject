@@ -20,7 +20,7 @@
         <div class="user-menu">
             <img class="user-img" src="images\no_usr.png" alt="User Image">
             <div class="dropdown-content">
-                <a href="my_profile.php">My Profile</a>
+                <a href="a_my_profile.php">My Profile</a>
                 <a href="logout.php">Logout</a>
             </div>
         </div>
