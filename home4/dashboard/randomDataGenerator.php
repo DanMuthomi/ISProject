@@ -14,8 +14,8 @@ $latitudeNairobi = -1.2921;
 $longitudeNairobi = 36.8219;
 
 // Start time for each meter
-$startTime = strtotime('2023-07-27 00:00:00');
-$endTime = $startTime + (3 * 60 * 60); // 3 hours in seconds
+$startTime = strtotime('2023-07-27 04:00:00');
+$endTime = $startTime + (1 * 60 * 60); // 3 hours in seconds
 
 // Fetch the uids for users with role 'USER' from the users table
 $uids = array();

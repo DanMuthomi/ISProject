@@ -43,7 +43,7 @@
         <div class="user-menu">
             <img class="user-img" src="path/to/user-image.jpg" alt="User Image">
             <div class="dropdown-content">
-                <a href="my_profile.php">My Profile</a>
+                <a href="a_my_profile.php">My Profile</a>
                 <a href="logout.php">Logout</a>
             </div>
         </div>

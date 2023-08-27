@@ -109,6 +109,10 @@
             </tbody>
         </table>
     </div>
+    <div class="coming-soon">
+            <h2>Payment Methods Coming Soon!</h2>
+            <p>We are currently working on adding a secure payment feature to enhance your energy monitoring experience. Stay tuned for updates!</p>
+        </div>
 </div>
 </body>
 </html>
