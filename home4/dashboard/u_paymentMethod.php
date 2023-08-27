@@ -33,6 +33,7 @@
 
     
 <div class="content">
+    <!-- Add the rest of your website content here -->
     <div class="payment-container">
         <h2>Payment Methods</h2>
         <table>
@@ -83,9 +84,9 @@
                                 // Calculate total energy and total amount
                                 $amountPerWattUsed = 0.1; // Example amount per watt used
                                 $amountPerWattSold = 0.15; // Example amount per watt sold
-                                $totalUsed = $energyUsed * $amountPerWattUsed;
-                                $totalSold = $energySold * $amountPerWattSold;
-                                $totalAmount = $totalUsed + $totalSold;
+                                $totalUsed = round($energyUsed * $amountPerWattUsed, 2);
+                                $totalSold = round($energySold * $amountPerWattSold, 2);
+                                $totalAmount = round($totalUsed + $totalSold, 2);
 
                                 echo "<tr>
                                         <td>$energyUsed</td>
